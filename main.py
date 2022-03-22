@@ -37,10 +37,6 @@ class Console:
         return password
 
 
-# async def ping(ip):
-# await os.system("ping " + ip)
-
-
 def send_req():
     r = requests.Session()
     url1 = "https://entrar.in/login/login"
@@ -58,9 +54,7 @@ def send_req():
 def run():
     for _ in range(100):
         t1 = threading.Thread(target=send_req())
-        # t2 = threading.Thread(target=ping(Console.ip))
     t1.start()
-    # t2.start()
 
 
 if __name__ == "__main__":
