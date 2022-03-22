@@ -43,13 +43,16 @@ class Console:
 
 def send_req():
     r = requests.Session()
-    url = "https://entrar.in/login/auth"
+    url1 = "https://entrar.in/login/login"
+    url2 = "https://entrar.in/login/auth"
     user = Console.rand_gen_user()
     password = Console.rand_gen_pass()
     captcha = Console.captcha_solve()
     payload = {"username": user, "password": password, "captcha": captcha}
-    req = r.post(url, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
-    print(Fore.LIGHTRED_EX, "Request Sent to ------->", req.url, "-", req.elapsed.total_seconds())
+    req1 = r.post(url1, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
+    req2 = r.post(url2, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
+    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req1.url, "-", req1.elapsed.total_seconds())
+    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req2.url, "-", req2.elapsed.total_seconds())
 
 
 def run():
