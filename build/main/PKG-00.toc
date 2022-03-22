@@ -40,6 +40,10 @@
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
+  ('pyi_rth_subprocess',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_subprocess.py',
+   'PYSOURCE'),
   ('pyi_rth_pkgutil',
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pkgutil.py',
@@ -48,20 +52,16 @@
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_multiprocessing.py',
    'PYSOURCE'),
-  ('pyi_rth_subprocess',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_subprocess.py',
-   'PYSOURCE'),
   ('main',
    'C:\\Users\\Pratham Sasha\\Desktop\\Programming\\Python 10M\\main.py',
    'PYSOURCE'),
-  ('VCRUNTIME140.dll',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\VCRUNTIME140.dll',
-   'BINARY'),
   ('python310.dll',
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\python310.dll',
+   'BINARY'),
+  ('VCRUNTIME140.dll',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\VCRUNTIME140.dll',
    'BINARY'),
   ('_multiprocessing',
    'C:\\Users\\Pratham '
@@ -103,6 +103,14 @@
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_bz2.pyd',
    'EXTENSION'),
+  ('_ctypes',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_ctypes.pyd',
+   'EXTENSION'),
+  ('_queue',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_queue.pyd',
+   'EXTENSION'),
   ('_overlapped',
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_overlapped.pyd',
@@ -110,14 +118,6 @@
   ('_asyncio',
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_asyncio.pyd',
-   'EXTENSION'),
-  ('_queue',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_queue.pyd',
-   'EXTENSION'),
-  ('_ctypes',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\_ctypes.pyd',
    'EXTENSION'),
   ('_cffi_backend',
    'C:\\Users\\Pratham '
@@ -131,13 +131,13 @@
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\cryptography\\hazmat\\bindings\\_rust.pyd',
    'EXTENSION'),
-  ('libssl-1_1.dll',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\libssl-1_1.dll',
-   'BINARY'),
   ('libcrypto-1_1.dll',
    'C:\\Users\\Pratham '
    'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\libcrypto-1_1.dll',
+   'BINARY'),
+  ('libssl-1_1.dll',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\DLLs\\libssl-1_1.dll',
    'BINARY'),
   ('libffi-7.dll',
    'C:\\Users\\Pratham '
@@ -151,9 +151,25 @@
    'C:\\Users\\Pratham Sasha\\Desktop\\Programming\\Python '
    '10M\\build\\main\\base_library.zip',
    'DATA'),
+  ('cryptography-36.0.2.dist-info\\RECORD',
+   'c:\\users\\pratham '
+   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\RECORD',
+   'DATA'),
+  ('cryptography-36.0.2.dist-info\\LICENSE',
+   'c:\\users\\pratham '
+   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\LICENSE',
+   'DATA'),
+  ('cryptography-36.0.2.dist-info\\top_level.txt',
+   'c:\\users\\pratham '
+   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\top_level.txt',
+   'DATA'),
   ('cryptography-36.0.2.dist-info\\LICENSE.PSF',
    'c:\\users\\pratham '
    'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\LICENSE.PSF',
+   'DATA'),
+  ('certifi\\cacert.pem',
+   'C:\\Users\\Pratham '
+   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\certifi\\cacert.pem',
    'DATA'),
   ('cryptography-36.0.2.dist-info\\LICENSE.APACHE',
    'c:\\users\\pratham '
@@ -167,29 +183,13 @@
    'c:\\users\\pratham '
    'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\INSTALLER',
    'DATA'),
-  ('cryptography-36.0.2.dist-info\\LICENSE',
-   'c:\\users\\pratham '
-   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\LICENSE',
-   'DATA'),
-  ('cryptography-36.0.2.dist-info\\LICENSE.BSD',
-   'c:\\users\\pratham '
-   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\LICENSE.BSD',
-   'DATA'),
-  ('cryptography-36.0.2.dist-info\\top_level.txt',
-   'c:\\users\\pratham '
-   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\top_level.txt',
-   'DATA'),
   ('cryptography-36.0.2.dist-info\\WHEEL',
    'c:\\users\\pratham '
    'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\WHEEL',
    'DATA'),
-  ('certifi\\cacert.pem',
-   'C:\\Users\\Pratham '
-   'Sasha\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\certifi\\cacert.pem',
-   'DATA'),
-  ('cryptography-36.0.2.dist-info\\RECORD',
+  ('cryptography-36.0.2.dist-info\\LICENSE.BSD',
    'c:\\users\\pratham '
-   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\RECORD',
+   'sasha\\appdata\\local\\programs\\python\\python310\\lib\\site-packages\\cryptography-36.0.2.dist-info\\LICENSE.BSD',
    'DATA')],
  False,
  False,

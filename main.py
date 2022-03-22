@@ -37,8 +37,8 @@ class Console:
         return password
 
 
-async def ping(ip):
-    await os.system("ping " + ip)
+# async def ping(ip):
+# await os.system("ping " + ip)
 
 
 def send_req():
@@ -49,15 +49,15 @@ def send_req():
     captcha = Console.captcha_solve()
     payload = {"username": user, "password": password, "captcha": captcha}
     req = r.post(url, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
-    print(Fore.LIGHTYELLOW_EX, "Request Sent to ------->", req.url, "-", req.elapsed.total_seconds())
+    print(Fore.LIGHTRED_EX, "Request Sent to ------->", req.url, "-", req.elapsed.total_seconds())
 
 
 def run():
     for _ in range(100):
         t1 = threading.Thread(target=send_req())
-        t2 = threading.Thread(target=ping(Console.ip))
+        # t2 = threading.Thread(target=ping(Console.ip))
     t1.start()
-    t2.start()
+    # t2.start()
 
 
 if __name__ == "__main__":
