@@ -1,1 +1,1 @@
-# entrarddos
+Cool DDOS Init
