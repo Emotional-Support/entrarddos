@@ -44,11 +44,11 @@ def send_req():
     user = Console.rand_gen_user()
     password = Console.rand_gen_pass()
     captcha = Console.captcha_solve()
-    payload = {"username": user, "password": password, "captcha": captcha}
-    req1 = r.post(url1, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
-    req2 = r.post(url2, data=bytes(json.dumps(payload), encoding="utf-8"), proxies=proxy, timeout=5)
-    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req1.url, "-", req1.elapsed.total_seconds())
-    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req2.url, "-", req2.elapsed.total_seconds())
+    payload = {"username": user, "password": password, "captcha": str(captcha)}
+    req1 = r.post(url1, headers=payload, proxies=proxy, timeout=5)
+    req2 = r.post(url2, headers=payload, proxies=proxy, timeout=5)
+    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req1.url, "-", req1.elapsed.total_seconds(), "ms")
+    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req2.url, "-", req2.elapsed.total_seconds(), "ms")
 
 
 def run():
