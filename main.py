@@ -32,7 +32,7 @@ def captcha_solve():
 
 
 def send_req():
-    limit = random.randint(1, 8)
+    limit = 8
     r = requests.Session()
     url = "https://entrar.in/login/auth"
     user = DG.rand_user(limit)
