@@ -36,7 +36,7 @@ def send_req():
     r = requests.Session()
     url = "https://entrar.in/login/auth"
     user = DG.rand_user(limit)
-    password = DG.rand_pass(limit)
+    password = DG.rand_pass(range)
     captcha = captcha_solve()
     payload = {"username": user, "password": password, "captcha": str(captcha)}
     req1 = r.post(url, data=payload, proxies=proxy, timeout=5)
