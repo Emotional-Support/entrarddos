@@ -45,18 +45,28 @@ def send_req():
     password = Console.rand_gen_pass()
     captcha = Console.captcha_solve()
     payload = {"username": user, "password": password, "captcha": str(captcha)}
-    req1 = r.post(url1, headers=payload, proxies=proxy, timeout=5)
-    req2 = r.post(url2, headers=payload, proxies=proxy, timeout=5)
+    param = {"headers": payload}
+    req1 = r.post(url1, params=param, proxies=proxy, timeout=5)
+    req2 = r.post(url2, params=param, proxies=proxy, timeout=5)
     print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req1.url, "-", req1.elapsed.total_seconds(), "ms")
     print(Fore.LIGHTGREEN_EX, "Request Sent to ------->", req2.url, "-", req2.elapsed.total_seconds(), "ms")
 
 
+threads = []
+
+
+def load_threads():
+    for i in range(100):
+        i = threading.Thread(target=send_req())
+        threads.append(i)
+
+
 def run():
-    for _ in range(100):
-        t1 = threading.Thread(target=send_req())
-    t1.start()
+    for t in threads:
+        t.start()
 
 
 if __name__ == "__main__":
     while True:
+        load_threads()
         run()
